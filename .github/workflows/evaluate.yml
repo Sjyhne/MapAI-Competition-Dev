@@ -25,31 +25,54 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: "test"
+        run: echo
+
       - name: "Checkout private repo with PAT"
         run: |
-          git clone https://${{ secrets.PAT_EVALUATION_DATA }}@github.com/Sjyhne/mapai_evaluation_data.git data
+          if [ ${{ github.actor }} == "Sjyhne"]; then
+            git clone https://${{ secrets.PAT_EVALUATION_DATA }}@github.com/Sjyhne/mapai_evaluation_data.git data
+          else
+            git clone https://github.com/Sjyhne/mapai_validation_data.git data
+          fi
 
       - name: "What is in my repo"
         run: |
           ls
-          ls data
 
 
       # Runs a set of commands using the runners shell
       - name: Evaluation
         run: |
-          for d in */ ; do
-            if [ "participant" == *"$d" ]; then
-              cp data/evaluation.py "$d"/.
-              cd $d
-              pip3 install -r requirements.txt
-              python3 evaluate_task_1.py --data_percentage 0.01 --dtype val
-              python3 evaluate_task_2.py --data_percentage 0.01 --dtype val
-              python3 evaluation.py --data_percentage 0.01 --dtype val --task 1
-              python3 evaluation.py --data_percentage 0.01 --dtype val --task 2
-              echo Finished evaluation, exiting
-              cd ..
-            else
-              echo "$d"
-            fi
-          done
+          if [ ${{ github.actor }} == "Sjyhne"]; then
+            for d in */ ; do
+              if [ "participant" == *"$d" ]; then
+                cp data/evaluation.py "$d"/.
+                cd $d
+                pip3 install -r requirements.txt
+                python3 evaluate_task_1.py --data_percentage 0.01 --dtype test
+                python3 evaluate_task_2.py --data_percentage 0.01 --dtype test
+                python3 evaluation.py --data_percentage 0.01 --dtype test --task 1
+                python3 evaluation.py --data_percentage 0.01 --dtype test --task 2
+                echo Finished evaluation, exiting
+                cd ..
+              else
+                echo "$d"
+              fi
+            done
+          else
+            for d in */ ; do
+              if [ "participant" == *"$d" ]; then
+                cp data/evaluation.py "$d"/.
+                cd $d
+                pip3 install -r requirements.txt
+                python3 evaluate_task_1.py --data_percentage 0.01 --dtype val
+                python3 evaluate_task_2.py --data_percentage 0.01 --dtype val
+                python3 evaluation.py --data_percentage 0.01 --dtype val --task 1
+                python3 evaluation.py --data_percentage 0.01 --dtype val --task 2
+                echo Finished evaluation, exiting
+                cd ..
+              else
+                echo "$d"
+              fi
+            done

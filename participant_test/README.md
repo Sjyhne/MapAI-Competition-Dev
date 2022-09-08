@@ -1,5 +1,7 @@
 # MapAI Compeition Template
 
+This is added as a test
+
 This is a general template for the MapAI Competition and provides the 
 users with a basic project using a FCN network backed by a pretrained backbone. 
 There is also a simple submission python file displaying the structure of the 

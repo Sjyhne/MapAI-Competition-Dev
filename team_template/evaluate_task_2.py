@@ -17,13 +17,13 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--config", type=str, default="config/evaluation_task_2.yaml", help="Config")
+    parser.add_argument("--config", type=str, default="config/data.yaml", help="Config")
     parser.add_argument("--task", type=int, default=2, help="Which task you are submitting for")
     parser.add_argument("--device", type=str, default="cpu", help="Which device the inference should run on")
     parser.add_argument("--weights", type=str, help="Path to weights for the specific model and task")
     parser.add_argument("--test_data", type=str, help="Path to test data")
     parser.add_argument("--data_percentage", type=float, default=1.0, help="Percentage of the whole dataset that is used")
-
+    parser.add_argument("--dtype", type=str, default="val", help="Which data to test against")
 
     args = parser.parse_args()
 
@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
     os.mkdir(taskfolder)
 
-    testloader = create_dataloader(opts, "test")
+    testloader = create_dataloader(opts, opts["dtype"])
 
     predictionfolder = os.path.join(taskfolder, "predictions")
 

@@ -43,8 +43,10 @@ jobs:
               cp data/evaluation.py "$d"/.
               cd $d
               pip3 install -r requirements.txt
-              python3 evaluate_task_1.py --data_percentage 0.01
-              python3 evaluation.py --data_percentage 0.01
+              python3 evaluate_task_1.py --data_percentage 0.01 --dtype val
+              python3 evaluate_task_2.py --data_percentage 0.01 --dtype val
+              python3 evaluation.py --data_percentage 0.01 --dtype val --task 1
+              python3 evaluation.py --data_percentage 0.01 --dtype val --task 2
               echo Finished evaluation, exiting
               cd ..
             else

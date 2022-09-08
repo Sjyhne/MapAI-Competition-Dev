@@ -22,3 +22,9 @@ val:
   lidarfolder: "../data/lidar/val"
   batchsize: 1
   shuffle: False
+test:
+  imagefolder: "../data/images/test"
+  lidarfolder: "../data/lidar/test"
+  labelfolder: "../data/masks/test"
+  batchsize: 1
+  shuffle: False

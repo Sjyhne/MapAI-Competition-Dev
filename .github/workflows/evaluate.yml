@@ -33,13 +33,21 @@ jobs:
 
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
         run: echo "$GITHUB_CONTEXT"
+
+      - name: Check if pull request
+        run: |
+          if [ -z ${{ github.event.pullrequest }} ]; then
+            echo this is not a pull request
+          elif [ -z ${{ github.event.commit }} ]; then
+            echo this is not a commit
+          fi
 
       - name: "Checkout private repo with PAT"
         run: |
           echo CLONING
-          if [ "${{ github.triggering_actor }}" == "Sjyhne" ]; then
+          if [ -z ${{ github.event.pullrequest }} ]; then
             echo PRIVATE CLONE
             git clone https://${{ secrets.PAT_EVALUATION_DATA }}@github.com/Sjyhne/mapai_evaluation_data.git data
           else
@@ -55,7 +63,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Evaluation
         run: |
-          if [ "${{ github.triggering_actor }}" == "Sjyhne" ]; then
+          if [ -z ${{ github.event.pullrequest }} ]; then
             for d in */ ; do
               if [ "participant" == *"$d" ]; then
                 cp data/evaluation.py "$d"/.

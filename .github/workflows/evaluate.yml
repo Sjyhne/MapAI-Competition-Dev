@@ -38,7 +38,7 @@ jobs:
 
       - name: Check if pull request
         run: |
-          if [ -z ${{ github.event.pullrequest }} ]; then
+          if [ -z ${{ github.event.pull_request }} ]; then
             echo this is not a pull request
           elif [ -z ${{ github.event.commit }} ]; then
             echo this is not a commit
@@ -47,7 +47,7 @@ jobs:
       - name: "Checkout private repo with PAT"
         run: |
           echo CLONING
-          if [ -z ${{ github.event.pullrequest }} ]; then
+          if [ -z ${{ github.event.pull_request }} ]; then
             echo PRIVATE CLONE
             git clone https://${{ secrets.PAT_EVALUATION_DATA }}@github.com/Sjyhne/mapai_evaluation_data.git data
           else
@@ -63,7 +63,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Evaluation
         run: |
-          if [ -z ${{ github.event.pullrequest }} ]; then
+          if [ -z ${{ github.event.pull_request }} ]; then
             for d in */ ; do
               if [ "participant" == *"$d" ]; then
                 cp data/evaluation.py "$d"/.

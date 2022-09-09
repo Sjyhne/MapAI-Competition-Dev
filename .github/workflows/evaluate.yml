@@ -33,7 +33,7 @@ jobs:
           if [ "${{ github.actor }}" == "Sjyhne" ]; then
             git clone https://${{ secrets.PAT_EVALUATION_DATA }}@github.com/Sjyhne/mapai_evaluation_data.git data
           else
-            git clone git@github.com:Sjyhne/mapai_validation_data.git data
+            git clone https://${{ github.actor }}@github.com/Sjyhne/mapai_validation_data.git data
           fi
 
       - name: "What is in my repo"

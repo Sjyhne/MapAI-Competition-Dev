@@ -27,7 +27,14 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Triggering actor
-        run: echo "${{ github.triggering_actor }}"
+        run: |
+          echo "${{ github.triggering_actor }}"
+          echo "${{ github.repository_owner }}"
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
       - name: "Checkout private repo with PAT"
         run: |

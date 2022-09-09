@@ -65,7 +65,7 @@ jobs:
         run: |
           if [ -z ${{ github.event.pull_request }} ]; then
             for d in */ ; do
-              if [ "participant" == *"$d" ]; then
+              if [ *"participant"* == $d ]; then
                 cp data/evaluation.py "$d"/.
                 cd $d
                 pip3 install -r requirements.txt
@@ -81,7 +81,7 @@ jobs:
             done
           else
             for d in */ ; do
-              if [ *"participant"* == "$d" ]; then
+              if [ *"participant"* == $d ]; then
                 cp data/evaluation.py "$d"/.
                 cd $d
                 pip3 install -r requirements.txt

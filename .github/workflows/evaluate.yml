@@ -23,17 +23,21 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: "test"
-        run: echo
+      - name: Triggering actor
+        run: echo "${{ github.triggering_actor }}"
 
       - name: "Checkout private repo with PAT"
         run: |
-          if [ "${{ github.actor }}" == "Sjyhne" ]; then
+          echo CLONING
+          if [ "${{ github.triggering_actor }}" == "Sjyhne" ]; then
+            echo PRIVATE CLONE
             git clone https://${{ secrets.PAT_EVALUATION_DATA }}@github.com/Sjyhne/mapai_evaluation_data.git data
           else
-            git clone https://${{ github.actor }}@github.com/Sjyhne/mapai_validation_data.git data
+            echo PUBLIC CLONE
+            git clone https://github.com/Sjyhne/mapai_validation_data.git data
           fi
 
       - name: "What is in my repo"
@@ -44,7 +48,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Evaluation
         run: |
-          if [ "${{ github.actor }}" == "Sjyhne" ]; then
+          if [ "${{ github.triggering_actor }}" == "Sjyhne" ]; then
             for d in */ ; do
               if [ "participant" == *"$d" ]; then
                 cp data/evaluation.py "$d"/.

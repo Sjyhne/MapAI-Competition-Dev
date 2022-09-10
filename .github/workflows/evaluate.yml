@@ -63,9 +63,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Evaluation
         run: |
+          parstr = "participant"
           if [ -z ${{ github.event.pull_request }} ]; then
             for d in */ ; do
-              if [[ *"participant"* == $d ]]; then
+              if [[ $d == *"$parstr"* ]]; then
                 cp data/evaluation.py "$d"/.
                 cd $d
                 pip3 install -r requirements.txt
@@ -81,7 +82,7 @@ jobs:
             done
           else
             for d in */ ; do
-              if [[ *"participant"* == $d ]]; then
+              if [[ $d == *"$parstr"* ]]; then
                 cp data/evaluation.py "$d"/.
                 echo have participant as substring - $d
                 cd $d

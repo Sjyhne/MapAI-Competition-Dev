@@ -38,7 +38,7 @@ jobs:
 
       # Install python packages that are required.
       - name: Install Python Global Dependencies
-        run: python3 -m pip install tomli pyenv-api
+        run: python3 -m pip install tomli pyenv-api datasets
 
       # Runs a set of commands using the runners shell
       # If not field github.event.pull_request exists, then do first forloop

@@ -91,7 +91,7 @@ jobs:
             # RUN both tasks
             for task in 1 2; do
               # RUN participant code
-              python3 main.py --data-ratio $datapercentage --data-type validation --submission-path $submission_path --task $task
+              python3 main.py --data-ratio $datapercentage --data-type $data_type --submission-path $submission_path --task $task
               
               # RUN evaluation code
               python3 ../../competition_toolkit/competition_toolkit/evaluation.py --task $task --data-ratio $datapercentage --submission-path $submission_path --team $team --data-type $data_type

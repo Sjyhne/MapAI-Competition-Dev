@@ -1,4 +1,4 @@
-# MapAI: Precision in Building Segmentation
+# NORA MapAI: Precision in Building Segmentation
 
 This is the official repository for the MapAI competition arranged by 
 the Norwegian Mapping Authority, Centre for Artificial Intelligence Research at University of Agder (CAIR),

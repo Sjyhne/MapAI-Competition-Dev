@@ -115,10 +115,7 @@ class ImageLabelAndLidarDataset(Dataset):
 
         self.opts = opts
 
-        if "task" in datatype:
-            self.paths = load_dataset("sjyhne/mapai_evaluation_data", split=datatype, use_auth_token=True)
-        else:
-            self.paths = load_dataset("sjyhne/mapai_training_data", split=datatype)
+        self.paths = download_dataset(data_type=datatype, task=opts["task"], get_dataset=True)
 
         print(
             f"Using number of images in {datatype}dataset: {int(self.paths.num_rows * self.opts['data_ratio'])}/{self.paths.num_rows}")

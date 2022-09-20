@@ -22,9 +22,11 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # Coding goes here....
+    #############################################################
+    # CODE GOES HERE
     # Load data from: args.data_path
     # Save results into: args.submission_path
+    #############################################################
     from model_task_1 import main as evaluate_model_1
     from model_task_2 import main as evaluate_model_2
     if args.task == 1:

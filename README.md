@@ -1,8 +1,9 @@
-# MapAI Competition
+# NORA MapAI: Precision in Building Segmentation
 
 This is the official repository for the MapAI competition arranged by 
-The Norwegian Mapping Authority, Centre for Artificial Intelligence Research at University of Agder (CAIR),
-Norwegian Artificial Intelligence Research Consortium (NORA), AI:Hub, and Norkart.
+the Norwegian Mapping Authority, Centre for Artificial Intelligence Research at University of Agder (CAIR),
+Norwegian Artificial Intelligence Research Consortium (NORA), AI:Hub, Norkart, and the Danish Agency for 
+Data Supply and Infrastructure.
 
 For this competition we are testing a new competition-framework/template for arranging 
 competitions using Github and Huggingface. This is the first competition we are arranging with
@@ -63,10 +64,11 @@ prone to change compared to more established competition frameworks.
 
 ### Prizes
 
-There will be two prizes, where the first place receives 1500 Euro and second place receives 500 Euro.
+The prizes will be 1200 euros for first place, 500 euros for second place, and 300 Euros for third place.
 
-1. 1500 Euro
+1. 1200 Euro
 2. 500 Euro
+3. 300 Euro
 
 ## Instructions
 

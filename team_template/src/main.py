@@ -15,8 +15,6 @@ if __name__ == "__main__":
     #############################################################
     parser.add_argument("--config", type=str, default="config/data.yaml", help="Config")
     parser.add_argument("--device", type=str, default="cpu", help="Which device the inference should run on")
-    parser.add_argument("--weights", type=str, help="Path to weights for the specific model and task")
-    parser.add_argument("--test_data", type=str, help="Path to test data")
     parser.add_argument("--data-ratio", type=float, default=1.0, help="Percentage of the whole dataset that is used")
 
     args = parser.parse_args()

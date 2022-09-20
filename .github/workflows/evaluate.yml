@@ -66,7 +66,7 @@ jobs:
           
           for team in team_*/ ; do
             # Set-up python environment
-            pyenv_exec=$(python3 scripts/mapai_toolkit/version_extractor.py --config $team/pyproject.toml)
+            pyenv_exec=$(python3 competition_toolkit/competition_toolkit/version_extractor.py --config $team/pyproject.toml)
             eval "$pyenv_exec -m venv env"
             #python3 -m venv env
             source env/bin/activate
@@ -74,8 +74,8 @@ jobs:
             # Install team dependencies
             pip3 install $team
             
-            # Install mapai_toolkit
-            pip3 install scripts/
+            # Install competition_toolkit
+            pip3 install competition_toolkit/
                       
             # Create submission directory (temporary)
             submission_path="/tmp/MapAI-$team-submission"
@@ -91,7 +91,7 @@ jobs:
               python3 main.py --data-ratio $datapercentage --data-type validation --submission-path $submission_path --task $task
               
               # RUN evaluation code
-              python3 ../../scripts/mapai_toolkit/evaluation.py --task $task --data-ratio $datapercentage --submission-path $submission_path --team $team --data-type $data_type
+              python3 ../../competition_toolkit/competition_toolkit/evaluation.py --task $task --data-ratio $datapercentage --submission-path $submission_path --team $team --data-type $data_type
             done
 
             # Deactivate virtual env

@@ -10,8 +10,8 @@ import gdown
 import os
 import shutil
 
-from mapai_toolkit.dataloader import create_dataloader
-from mapai_toolkit.eval_functions import iou, biou
+from competition_toolkit.dataloader import create_dataloader
+from competition_toolkit.eval_functions import iou, biou
 
 
 def main(args):

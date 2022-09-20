@@ -10,10 +10,10 @@ from tabulate import tabulate
 import argparse
 import time
 
-from dataloader import create_dataloader
+from competition_toolkit.dataloader import create_dataloader
 from utils import create_run_dir, store_model_weights, record_scores
 
-from eval_functions import calculate_score
+from competition_toolkit.eval_functions import calculate_score
 
 
 def test(opts, dataloader, model, lossfn):

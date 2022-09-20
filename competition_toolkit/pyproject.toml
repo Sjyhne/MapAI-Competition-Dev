@@ -3,9 +3,9 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mapai_toolkit"
+name = "competition_toolkit"
 version = "1.0.0"
-description = "The MapAI Competition SDK"
+description = "The Competition SDK"
 keywords = []
 license = {text = "MIT"}
 classifiers = [

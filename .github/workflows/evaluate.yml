@@ -47,7 +47,7 @@ jobs:
           eval "$(pyenv init -)"
           
           # Variables
-          datapercentage=0.01
+          datapercentage=1.0
           
           
           # Create artifacts_path

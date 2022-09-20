@@ -58,7 +58,7 @@ evaluation method.
 Forking the base repository is part of the registration process. However, we would also like you to register your information
 in a Google forms. The main reason comes from the ability to reach out to the participant with important information. 
 As mentioned earlier, the competition framework is piloting with this competition, and therefore it will be more
-prone to change compared to more established competition frameworks.
+prone to change compared to more established competition frameworks. Please fill out the form below.
 
 [Google form](https://docs.google.com/forms/d/1sJ9R2j32dc7TUDDkVCpLsaIVBcxRcOLiwmqeq-15O5E/edit)
 
@@ -69,6 +69,8 @@ The prizes will be 1200 euros for first place, 500 euros for second place, and 3
 1. 1200 Euro
 2. 500 Euro
 3. 300 Euro
+
+Results will be presented at https://sjyhne.github.io/MapAI-Competition/ after evaluation.
 
 ## Instructions
 

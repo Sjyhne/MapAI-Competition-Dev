@@ -59,7 +59,7 @@ def load_lidar(lidarpath: str, size: tuple) -> torch.tensor:
 
 def download_dataset(data_type: str, task: int, get_dataset: bool = False):
     if data_type == "test":
-        paths = load_dataset("sjyhne/mapai_evaluation_data", split=f"task_{str(task)}", use_auth_token=True)
+        paths = load_dataset("sjyhne/mapai_evaluation_data", split=f"task{str(task)}", use_auth_token=True)
     else:
         paths = load_dataset("sjyhne/mapai_training_data", split=data_type)
 

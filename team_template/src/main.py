@@ -11,10 +11,9 @@ if __name__ == "__main__":
     parser.add_argument("--task", type=int, default=3, help="Which task you are submitting for")
 
     #############################################################
-    # Custom arguments goes here
+    # CUSTOM ARGUMENTS GOES HERE
     #############################################################
     parser.add_argument("--config", type=str, default="config/data.yaml", help="Config")
-
     parser.add_argument("--device", type=str, default="cpu", help="Which device the inference should run on")
     parser.add_argument("--weights", type=str, help="Path to weights for the specific model and task")
     parser.add_argument("--test_data", type=str, help="Path to test data")
@@ -24,7 +23,6 @@ if __name__ == "__main__":
 
     #############################################################
     # CODE GOES HERE
-    # Load data from: args.data_path
     # Save results into: args.submission_path
     #############################################################
     from model_task_1 import main as evaluate_model_1

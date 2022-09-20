@@ -187,17 +187,10 @@ def create_dataloader(opts: dict, datatype: str = "test") -> DataLoader:
     elif opts["task"] == 2:
         dataset = ImageLabelAndLidarDataset(opts, datatype)
 
-    dataloader = DataLoader(dataset, batch_size=opts[datatype]["batchsize"], shuffle=opts[datatype]["shuffle"])
+    dataloader = DataLoader(dataset, batch_size=opts[f"task{opts['task']}"]["batchsize"], shuffle=opts[f"task{opts['task']}"]["shuffle"])
 
     return dataloader
 
-
-def create_testloader(opts: dict, datatype: str = "test") -> DataLoader:
-    dataset = TestDataset(opts, datatype)
-
-    testloader = DataLoader(dataset, batch_size=opts[datatype]["batchsize"], shuffle=opts[datatype]["shuffle"])
-
-    return testloader
 
 
 if __name__ == "__main__":

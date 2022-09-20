@@ -38,7 +38,7 @@ jobs:
 
       # Install python packages that are required.
       - name: Install Python Global Dependencies
-        run: python3 -m pip install tomli pyenv-api datasets
+        run: python3 -m pip install tomli pyenv-api
 
       # Runs a set of commands using the runners shell
       # If not field github.event.pull_request exists, then do first forloop
@@ -52,14 +52,6 @@ jobs:
           # Variables
           datapercentage=0.01
           
-          if [ -z ${{ github.event.release }} ]; then
-              # validation data (on public data)
-              data_type=validation
-            else
-              # test data(on private data, competition submission)
-              echo $ACCESS_TOKEN | huggingface-cli login
-              data_type=test         
-          fi
           
           # Create artifacts_path
           artifacts_path="/tmp/mapai-result-artifacts"
@@ -78,6 +70,15 @@ jobs:
             
             # Install competition_toolkit
             pip3 install competition_toolkit/
+          
+            if [ -z ${{ github.event.release }} ]; then
+                # validation data (on public data)
+                data_type=validation
+              else
+                # test data(on private data, competition submission)
+                echo $ACCESS_TOKEN | huggingface-cli login
+                data_type=test         
+            fi
                       
             # Create submission directory (temporary)
             submission_path="/tmp/MapAI-$team-submission"

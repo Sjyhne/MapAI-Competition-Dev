@@ -11,7 +11,11 @@ If there is a question or something is wrong, please raise a issue regarding the
 
 The competition is sponsored by AI:Hub and The Norwegian Mapping Authority
 
-\insert logos
+<div style="text-align:center">
+<img src="figures/aihub_logo.png" alt="aihub logo" width="200" style="padding: 20px"/>
+<img src="figures/kartverket_logo.png" alt="kartverket logo" width="200" style="padding: 20px"/>
+</div>
+
 
 ## Competition Information
 

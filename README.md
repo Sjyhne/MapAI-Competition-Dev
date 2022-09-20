@@ -1,8 +1,9 @@
-# MapAI Competition
+# MapAI: Precision in Building Segmentation
 
 This is the official repository for the MapAI competition arranged by 
-The Norwegian Mapping Authority, Centre for Artificial Intelligence Research at University of Agder (CAIR),
-Norwegian Artificial Intelligence Research Consortium (NORA), AI:Hub, and Norkart.
+the Norwegian Mapping Authority, Centre for Artificial Intelligence Research at University of Agder (CAIR),
+Norwegian Artificial Intelligence Research Consortium (NORA), AI:Hub, Norkart, and the Danish Agency for 
+Data Supply and Infrastructure.
 
 For this competition we are testing a new competition-framework/template for arranging 
 competitions using Github and Huggingface. This is the first competition we are arranging with

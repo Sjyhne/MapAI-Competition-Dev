@@ -1,11 +1,9 @@
 # MapAI Compeition Template
 
-This is the template project for the MapAI-Competition. Inside this folder is a handful
-of practical functionality for the competition.
 
 ## Important
-
-
+Do not alter the sections in `main.py` that reads `DO NOT EDIT`. You should only include your code in the `CODE GOES HERE` section, as illustrated in the example code.
+Your code should output submission to the `args.submission_path` location.
 
 ## pyproject.toml
 
@@ -37,12 +35,13 @@ training for. In the runs folder you will also find a folder with the input, pre
 and label images - in addition to the stored model weights.
 
 ## Evaluation
+To verify that your code, and to evaluate your model. You should be able to run following command:
 
-Evaluate task 1 with the validation data
-> python3 evaluate_task_1.py --dtype validation
-
-Evaluate task 2 with the validation data
-> python3 evaluate_task_2.py --dtype validation
+```
+mkdir -p ./submission
+python3 main.py --data-ratio 1.0 --data-type validation --submission-path ./submission --task 1
+python3 main.py --data-ratio 1.0 --data-type validation --submission-path ./submission --task 2
+```
 
 The commands above will output their predictions to a submission folder
 which is used during evaluation on our servers
